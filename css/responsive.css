@@ -1,0 +1,46 @@
+/* ================= Responsive ================= */
+@media (max-width:1100px){
+  .nav-links{gap:32px}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .insta-grid img:nth-child(1),.insta-grid img:nth-child(6){grid-column:auto;height:180px}
+}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .hero{min-height:520px;background-position:right center}
+  .hero-card{margin:0 auto;padding:40px;max-width:90%}
+  .hero-card h1{font-size:36px}
+  .range-grid{grid-template-columns:1fr;gap:16px}
+  .range-card img{height:320px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .inspo-wrap{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .perks-grid{grid-template-columns:repeat(2,1fr)}
+  .pd{grid-template-columns:1fr}
+  .pd-thumbs{flex-direction:row;order:2}
+  .pd-thumbs img{height:70px;width:70px;flex:0 0 auto}
+  .cart-wrap,.checkout-wrap{grid-template-columns:1fr;padding:30px 0}
+  .form-grid{grid-template-columns:1fr}
+  .dash{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:-100%;top:0;height:100vh;width:260px;transition:left .3s;z-index:70}
+  .sidebar.open{left:0}
+  .dash-main{padding:20px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .banner h1{font-size:36px}
+  .tab-heads{gap:20px;font-size:16px}
+  .tab-images{grid-template-columns:1fr}
+  .cart-table thead{display:none}
+  .cart-table,.cart-table tbody,.cart-table tr,.cart-table td{display:block;width:100%}
+  .cart-table tr{border-bottom:1px solid var(--border);padding:12px 0}
+  .cart-table td{padding:6px 0}
+}
+@media (max-width:560px){
+  .product-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .perks-grid{grid-template-columns:1fr 1fr}
+  .stat-grid{grid-template-columns:1fr}
+  .insta-grid{grid-template-columns:1fr 1fr}
+  .btn{padding:14px 32px}
+  .container{padding:0 16px}
+}

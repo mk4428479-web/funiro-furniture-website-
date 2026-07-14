@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/responsive.css"/><title>Contact — Furniro</title></head><body>
+<div id="header-slot"></div>
+<section class="banner"><div class="inner">
+  <svg class="logo-mark" viewBox="0 0 32 22" fill="currentColor"><path d="M20.7 6.68L16 15.09l-4.7-8.41L16 0l4.7 6.68z"/></svg>
+  <h1>Contact</h1>
+  <div class="crumb"><a href="index.html">Home</a><span class="sep">></span><span>Contact</span></div>
+</div></section>
+<section class="section"><div class="container" style="max-width:900px;text-align:center">
+  <h2 class="section-title">Get In Touch With Us</h2>
+  <p style="color:var(--muted)">For More Information About Our Product & Services. Please Feel Free To Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
+</div>
+<div class="container" style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;max-width:1058px;margin-top:40px">
+  <div>
+    <div style="margin-bottom:30px"><h3>📍 Address</h3><p>236 5th SE Avenue, New York NY10000, United States</p></div>
+    <div style="margin-bottom:30px"><h3>📞 Phone</h3><p>Mobile: +(84) 546-6789<br/>Hotline: +(84) 456-6789</p></div>
+    <div><h3>🕐 Working Time</h3><p>Monday-Friday: 9:00 - 22:00<br/>Saturday-Sunday: 9:00 - 21:00</p></div>
+  </div>
+  <form id="contactForm" novalidate>
+    <div class="field"><label>Your name</label><input name="name" placeholder="Abc" type="text" required/></div>
+    <div class="field"><label>Email address</label><input name="email" placeholder="Abc@def.com" type="email" required/></div>
+    <div class="field"><label>Subject</label><input name="subject" placeholder="This is an optional" type="text"/></div>
+    <div class="field"><label>Message</label><textarea name="message" rows="4" placeholder="Hi! I'd like to ask about" required></textarea></div>
+    <button class="btn" type="submit">Submit</button>
+  </form>
+</div></section>
+<div id="perks-slot"></div>
+<div id="footer-slot"></div>
+<script src="js/script.js"></script><script src="js/validation.js"></script><script src="js/auth.js"></script><script src="js/dashboard.js"></script></body></html>
+<script>
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const { validateForm, V } = window.Validate;
+  if(!validateForm(e.target, {
+    name:{required:true, pattern:V.name, label:'Name'},
+    email:{required:true, pattern:V.email, label:'Email'},
+    message:{required:true, min:5, label:'Message'}
+  })) return;
+  Furniro.Toast.show('Message sent — we will reply soon!', 'success'); e.target.reset();
+});
+</script>

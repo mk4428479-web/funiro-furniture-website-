@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/responsive.css"/><title>Dashboard — Furniro</title></head><body>
+<div id="header-slot"></div>
+<div class="dash" data-dash>
+  <aside class="sidebar">
+    <div class="u">
+      <div class="avatar" data-user-initial>A</div>
+      <div class="name" data-user-name>User</div>
+      <div class="mail" data-user-mail>user@mail.com</div>
+    </div>
+    <nav>
+      <a href="dashboard.html" class="active">🏠 Dashboard</a>
+      <a href="profile.html" class="">👤 Profile</a>
+      <a href="settings.html" class="">⚙ Settings</a>
+      <a href="cart.html">🛒 My Cart</a>
+      <a href="#" data-logout>↪ Logout</a>
+    </nav>
+  </aside>
+  <main class="dash-main">
+  <div class="dash-top">
+    <h1>Welcome back, <span data-user-name></span></h1>
+    <button class="btn" id="dashToggle" style="display:none">☰</button>
+  </div>
+  <div class="stat-grid">
+    <div class="stat"><div class="label">Orders</div><div class="value" data-stat-orders>0</div></div>
+    <div class="stat"><div class="label">Wishlist</div><div class="value" data-stat-wish>0</div></div>
+    <div class="stat"><div class="label">Cart items</div><div class="value" data-stat-cart>0</div></div>
+    <div class="stat"><div class="label">Total spent</div><div class="value" data-stat-spent>Rp 0</div></div>
+  </div>
+  <div class="card"><h3>Recent activity</h3><p style="color:var(--muted)">You have no recent activity yet. Start browsing the <a href="shop.html" style="color:var(--brand)">shop</a>.</p></div>
+  </main>
+</div>
+<script src="js/script.js"></script><script src="js/validation.js"></script><script src="js/auth.js"></script><script src="js/dashboard.js"></script></body></html>

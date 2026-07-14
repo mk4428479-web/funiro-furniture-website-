@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/responsive.css"/><title>Checkout — Furniro</title></head><body>
+<div id="header-slot"></div>
+<section class="banner"><div class="inner">
+  <svg class="logo-mark" viewBox="0 0 32 22" fill="currentColor"><path d="M20.7 6.68L16 15.09l-4.7-8.41L16 0l4.7 6.68z"/></svg>
+  <h1>Checkout</h1>
+  <div class="crumb"><a href="index.html">Home</a><span class="sep">></span><span>Checkout</span></div>
+</div></section>
+<section class="section"><div class="container">
+  <div class="checkout-wrap">
+    <form id="checkoutForm" novalidate>
+      <h2>Billing details</h2>
+      <div class="form-grid">
+        <div class="field"><label>First Name</label><input name="fname" type="text" required/></div>
+        <div class="field"><label>Last Name</label><input name="lname" type="text" required/></div>
+        <div class="field full"><label>Company (optional)</label><input name="company" type="text"/></div>
+        <div class="field full"><label>Country / Region</label>
+          <select name="country"><option>United States</option><option>Indonesia</option><option>United Kingdom</option></select>
+        </div>
+        <div class="field full"><label>Street address</label><input name="street" type="text" required/></div>
+        <div class="field"><label>Town / City</label><input name="city" type="text" required/></div>
+        <div class="field"><label>ZIP code</label><input name="zip" type="text" required/></div>
+        <div class="field"><label>Phone</label><input name="phone" type="tel" required/></div>
+        <div class="field"><label>Email address</label><input name="email" type="email" required/></div>
+        <div class="field full"><label>Additional information</label><textarea name="notes" rows="4"></textarea></div>
+      </div>
+    </form>
+    <aside>
+      <h2>Your order</h2>
+      <div class="order-summary" id="orderSummary"></div>
+      <div class="pay-methods" style="margin-top:20px">
+        <label><input type="radio" name="pay" checked/> Direct Bank Transfer</label>
+        <p class="desc">Make your payment directly into our bank account.</p>
+        <label><input type="radio" name="pay"/> Cash On Delivery</label>
+      </div>
+      <button type="button" class="btn" id="placeOrder" style="width:100%;margin-top:16px;background:transparent;color:#000;border:1px solid #000;border-radius:15px">Place order</button>
+    </aside>
+  </div>
+</div></section>
+<div id="footer-slot"></div>
+<script src="js/script.js"></script><script src="js/validation.js"></script><script src="js/auth.js"></script><script src="js/dashboard.js"></script></body></html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const items = Furniro.Cart.list().map(i => ({...Furniro.PRODUCTS.find(p=>p.id===i.id), qty:i.qty})).filter(i=>i.id);
+  const sum = document.getElementById('orderSummary');
+  sum.innerHTML = items.map(i=>`<div class="row"><span>${i.name} × ${i.qty}</span><b>${Furniro.fmtRp(i.price*i.qty)}</b></div>`).join('')
+    + `<div class="row"><span>Subtotal</span><b>${Furniro.fmtRp(Furniro.Cart.total())}</b></div>
+       <div class="row"><span>Total</span><b style="color:var(--brand);font-size:22px">${Furniro.fmtRp(Furniro.Cart.total())}</b></div>`;
+  document.getElementById('placeOrder').onclick = () => {
+    const f = document.getElementById('checkoutForm');
+    const { validateForm, V } = window.Validate;
+    if(!validateForm(f, {
+      fname:{required:true, pattern:V.name, label:'First name'},
+      lname:{required:true, pattern:V.name, label:'Last name'},
+      street:{required:true, label:'Street'},
+      city:{required:true, label:'City'},
+      zip:{required:true, pattern:V.zip, label:'ZIP'},
+      phone:{required:true, pattern:V.phone, label:'Phone'},
+      email:{required:true, pattern:V.email, label:'Email'}
+    })) return;
+    if(!Furniro.Cart.list().length){ Furniro.Toast.show('Your cart is empty','error'); return; }
+    const orders = JSON.parse(localStorage.getItem('furniro_orders')||'[]');
+    orders.push({id:'o_'+Date.now(), items:Furniro.Cart.list(), total:Furniro.Cart.total(), date:Date.now()});
+    localStorage.setItem('furniro_orders', JSON.stringify(orders));
+    localStorage.removeItem('furniro_cart');
+    Furniro.Toast.show('Order placed successfully!','success');
+    setTimeout(()=>location.href='dashboard.html', 900);
+  };
+});
+</script>

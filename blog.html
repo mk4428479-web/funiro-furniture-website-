@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/responsive.css"/><title>Blog — Furniro</title></head><body>
+<div id="header-slot"></div>
+<section class="banner"><div class="inner">
+  <svg class="logo-mark" viewBox="0 0 32 22" fill="currentColor"><path d="M20.7 6.68L16 15.09l-4.7-8.41L16 0l4.7 6.68z"/></svg>
+  <h1>Blog</h1>
+  <div class="crumb"><a href="index.html">Home</a><span class="sep">></span><span>Blog</span></div>
+</div></section>
+<section class="section"><div class="container" style="display:grid;grid-template-columns:2fr 1fr;gap:40px">
+  <div id="blogList"></div>
+  <aside>
+    <input type="search" placeholder="Search" style="width:100%;margin-bottom:20px"/>
+    <h3>Categories</h3>
+    <ul style="list-style:none;padding:0;color:var(--muted-2)">
+      <li style="display:flex;justify-content:space-between;padding:8px 0">Crafts <span>2</span></li>
+      <li style="display:flex;justify-content:space-between;padding:8px 0">Design <span>8</span></li>
+      <li style="display:flex;justify-content:space-between;padding:8px 0">Handmade <span>7</span></li>
+      <li style="display:flex;justify-content:space-between;padding:8px 0">Interior <span>1</span></li>
+      <li style="display:flex;justify-content:space-between;padding:8px 0">Wood <span>6</span></li>
+    </ul>
+    <h3 style="margin-top:30px">Recent Posts</h3>
+    <div id="recent"></div>
+  </aside>
+</div>
+<div class="pagination"><a class="active">1</a><a>2</a><a>3</a><a>Next</a></div>
+</section>
+<div id="perks-slot"></div>
+<div id="footer-slot"></div>
+<script src="js/script.js"></script><script src="js/validation.js"></script><script src="js/auth.js"></script><script src="js/dashboard.js"></script></body></html>
+<script>
+const posts = [
+  {t:'Going all-in with millennial design', img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=60'},
+  {t:'Exploring new ways of decorating', img:'https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=900&q=60'},
+  {t:'Handmade pieces that took time to make', img:'https://images.unsplash.com/photo-1499933374294-4584851497cc?auto=format&fit=crop&w=900&q=60'}
+];
+document.getElementById('blogList').innerHTML = posts.map(p => `
+  <article style="margin-bottom:60px">
+    <img src="${p.img}" style="border-radius:10px;height:420px;object-fit:cover;width:100%" alt="">
+    <div style="color:var(--muted);font-size:14px;margin-top:12px">👤 Admin · 📅 14 Oct 2022 · 🏷 Wood</div>
+    <h2 style="margin:12px 0">${p.t}</h2>
+    <p style="color:var(--muted-2)">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+    <a href="#" style="border-bottom:1px solid #000;padding-bottom:4px">Read more</a>
+  </article>`).join('');
+document.getElementById('recent').innerHTML = posts.map(p => `
+  <div style="display:flex;gap:12px;margin-bottom:16px">
+    <img src="${p.img}" style="width:80px;height:80px;object-fit:cover;border-radius:8px" alt="">
+    <div><b style="font-size:14px">${p.t}</b><div style="color:var(--muted);font-size:12px">03 Aug 2022</div></div>
+  </div>`).join('');
+</script>
