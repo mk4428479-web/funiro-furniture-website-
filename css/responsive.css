@@ -44,3 +44,240 @@
   .btn{padding:14px 32px}
   .container{padding:0 16px}
 }
+.inspo-wrap{
+    flex-direction:column;
+    text-align:center;
+}
+/* ================= 1200px ================= */
+@media (max-width:1200px){
+
+    .container{
+        padding:0 25px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .insta-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+}
+
+/* ================= 992px ================= */
+@media (max-width:992px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .burger{
+        display:flex;
+    }
+
+    .hero{
+        min-height:550px;
+    }
+
+    .hero-card{
+        margin:auto;
+        max-width:90%;
+        padding:40px;
+        text-align:center;
+    }
+
+    .hero-card h1{
+        font-size:38px;
+    }
+
+    .range-grid,
+    .product-grid,
+    .perks-grid,
+    .stat-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .inspo-wrap{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .inspo-gallery{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .pd,
+    .cart-wrap,
+    .checkout-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ================= 768px ================= */
+@media (max-width:768px){
+
+    .banner h1{
+        font-size:34px;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .hero-card h1{
+        font-size:32px;
+    }
+
+    .main{
+        width:100%;
+        max-width:420px;
+        height:450px;
+    }
+
+    .side{
+        width:100%;
+        max-width:320px;
+        height:380px;
+    }
+
+    .tab-heads{
+        gap:20px;
+        font-size:16px;
+        flex-wrap:wrap;
+    }
+
+    .footer-grid,
+    .product-grid,
+    .range-grid,
+    .perks-grid,
+    .stat-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ================= 576px ================= */
+@media (max-width:576px){
+
+    .container{
+        padding:0 15px;
+    }
+
+    .hero{
+        min-height:450px;
+    }
+
+    .hero-card{
+        padding:25px;
+    }
+
+    .hero-card h1{
+        font-size:28px;
+    }
+
+    .hero-card p{
+        font-size:14px;
+    }
+
+    .banner h1{
+        font-size:28px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+        padding:14px 20px;
+    }
+
+    .main,
+    .side{
+        width:100%;
+        height:300px;
+    }
+
+    .insta-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        text-align:center;
+    }
+
+}
+
+/* ================= 400px ================= */
+@media (max-width:400px){
+
+    .hero-card h1{
+        font-size:24px;
+    }
+
+    .section-title{
+        font-size:22px;
+    }
+
+    .banner h1{
+        font-size:22px;
+    }
+
+    .btn{
+        font-size:14px;
+        padding:12px 18px;
+    }
+
+    .main,
+    .side{
+        height:250px;
+    }
+
+    .dots{
+        gap:8px;
+    }
+
+    .dot{
+        width:10px;
+        height:10px;
+    }
+
+}
+
+/* ================= 320px ================= */
+@media (max-width:320px){
+
+    .container{
+        padding:0 10px;
+    }
+
+    .hero-card{
+        padding:18px;
+    }
+
+    .hero-card h1{
+        font-size:20px;
+    }
+
+    .hero-card p{
+        font-size:13px;
+    }
+
+    .btn{
+        font-size:13px;
+        padding:10px 14px;
+    }
+
+}

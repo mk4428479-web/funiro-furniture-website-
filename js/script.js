@@ -400,3 +400,54 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.Furniro = { Cart, Wish, Toast, PRODUCTS, fmtRp, productCard, renderProducts };
+const galleryData = [
+    {
+        main: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=60",
+        side: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=60"
+    },
+    {
+        main: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=60",
+        side: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=60"
+    },
+    {
+        main: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=60",
+        side: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=60"
+    },
+    {
+        main: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=60",
+        side: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=60"
+    }
+];
+
+const mainImg = document.querySelector(".main");
+const sideImg = document.querySelector(".side");
+const dots = document.querySelectorAll(".dot");
+
+let current = 0;
+
+function updateSlider(index){
+
+    mainImg.src = galleryData[index].main;
+    sideImg.src = galleryData[index].side;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+}
+
+setInterval(() => {
+    current++;
+
+    if(current >= galleryData.length){
+        current = 0;
+    }
+
+    updateSlider(current);
+
+},3000);
+
+dots.forEach((dot,index)=>{
+    dot.addEventListener("click",()=>{
+        current = index;
+        updateSlider(index);
+    });
+});
